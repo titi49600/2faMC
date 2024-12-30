@@ -1,0 +1,9 @@
+com\security\minecraft2fa\storage\SessionManager$CachedSession.class
+com\security\minecraft2fa\utils\DiscordWebhook.class
+com\security\minecraft2fa\commands\TwoFactorAuthAdminCommand.class
+com\security\minecraft2fa\commands\TwoFactorAuthCommand.class
+com\security\minecraft2fa\Minecraft2FAPlugin.class
+com\security\minecraft2fa\managers\AuthManager.class
+com\security\minecraft2fa\listeners\PlayerListener.class
+com\security\minecraft2fa\storage\SessionManager.class
+com\security\minecraft2fa\storage\DatabaseManager.class

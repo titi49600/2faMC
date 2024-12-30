@@ -1,0 +1,32 @@
+name: Minecraft2FA
+version: '1.0-SNAPSHOT'
+main: com.security.minecraft2fa.Minecraft2FAPlugin
+api-version: '1.17'
+depend: [LuckPerms]
+softdepend: [RedisBungee]
+authors: [titi49600]
+description: Plugin d'authentification à deux facteurs pour Minecraft
+
+commands:
+  2fa:
+    description: Commande principale pour la gestion de l'authentification à deux facteurs
+    usage: |
+      §c[2FA] §eCommandes disponibles:
+      §e/2fa verify <code> §7- Vérifier un code 2FA
+      §e/2fa status §7- Vérifier votre statut 2FA
+  2fa-admin:
+    description: Commandes administratives pour la gestion du 2FA
+    usage: |
+      §c[2FA] §eCommandes administratives:
+      §e/2fa-admin force-reset <joueur> §7- Réinitialiser le 2FA d'un joueur
+      §e/2fa-admin check <joueur> §7- Vérifier le statut 2FA d'un joueur
+      §e/2fa-admin list §7- Liste des joueurs avec 2FA activé
+    permission: minecraft2fa.admin
+
+permissions:
+  minecraft2fa.admin:
+    description: Permet d'utiliser les commandes administratives
+    default: op
+  minecraft2fa.bypass:
+    description: Permet de contourner l'authentification 2FA
+    default: false 

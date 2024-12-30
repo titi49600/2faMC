@@ -1,0 +1,81 @@
+# Configuration du plugin 2FA
+
+# Liste des permissions nécessitant le 2FA
+sensitive-permissions:
+  - 'luckperms.*'
+  - 'cmi.*'
+  - 'crazycrates.*'
+  - 'azlink'
+  - 'mycommand.*'
+  - 'minecraft.command.op'
+  - 'bukkit.command.reload'
+  - 'minecraft.command.stop'
+  - 'plugman.*'
+  - '*.admin'
+  - '*.owner'
+
+# Configuration Redis pour le mode multi-serveur
+redis:
+  # Activer/désactiver le mode multi-serveur
+  enabled: false
+  # Hôte Redis
+  host: 'localhost'
+  # Port Redis
+  port: 6379
+  # Mot de passe Redis (laisser vide si pas de mot de passe)
+  password: ''
+  # Durée d'expiration des sessions en secondes (12 heures par défaut)
+  session-expiry: 43200
+
+# Configuration Discord
+discord:
+  # URL du webhook Discord pour les alertes de sécurité
+  webhook-url: ''
+  # Activer/désactiver les notifications Discord
+  enabled: false
+
+# Messages personnalisables
+messages:
+  prefix: '§c[2FA] §e'
+  setup-required: '§c[2FA] §eVous devez configurer l''authentification à deux facteurs!'
+  auth-required: '§c[2FA] §eVeuillez vous authentifier avec /2fa verify <code>'
+  auth-success: '§c[2FA] §aAuthentification réussie!'
+  auth-failed: '§c[2FA] §cCode invalide!'
+  setup-success: '§c[2FA] §aConfiguration 2FA terminée avec succès!'
+  setup-failed: '§c[2FA] §cCode invalide ou configuration non initiée!'
+  already-setup: '§c[2FA] §cVous avez déjà configuré l''authentification à deux facteurs!'
+  not-setup: '§c[2FA] §cVous n''avez pas activé l''authentification à deux facteurs!'
+  disabled: '§c[2FA] §aL''authentification à deux facteurs a été désactivée!'
+  cooldown: '§c[2FA] §cVeuillez attendre avant de réessayer.'
+  ban-message: '§c[2FA] §cTrop de tentatives échouées.\n§7Réessayez dans %minutes% minutes.'
+
+# Configuration de la base de données
+database:
+  # Type de base de données (sqlite/mysql)
+  type: sqlite
+  
+  # Configuration MySQL (ignorée si type = sqlite)
+  mysql:
+    host: localhost
+    port: 3306
+    database: minecraft2fa
+    username: root
+    password: ''
+    ssl: false
+
+# Configuration de sécurité
+security:
+  # Nombre maximum de tentatives avant blocage temporaire
+  max-attempts: 3
+  # Durée du blocage en minutes
+  lockout-duration: 5
+  # Délai minimum entre deux tentatives en millisecondes (anti-bruteforce)
+  attempt-cooldown: 2000
+  # Paramètres de journalisation
+  logging:
+    # Journaliser les tentatives échouées
+    failed-attempts: true
+    # Journaliser les connexions réussies
+    successful-auth: true
+    # Journaliser les configurations 2FA
+    setup-events: true
